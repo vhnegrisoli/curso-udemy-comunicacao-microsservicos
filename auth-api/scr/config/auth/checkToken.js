@@ -5,7 +5,6 @@ import AuthException from "./AuthException.js";
 
 import * as secrets from "../constants/secrets.js";
 import * as httpStatus from "../constants/httpStatus.js";
-import { access } from "fs";
 
 const emptySpace = " ";
 
