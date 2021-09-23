@@ -1,0 +1,19 @@
+VSCode: https://code.visualstudio.com/download
+
+Docker: https://docs.docker.com/docker-for-windows/install/
+
+IntelliJ IDEA: 	https://www.jetbrains.com/pt-br/idea/
+
+Yarn: https://classic.yarnpkg.com/en/docs/install#windows-stable
+
+Git: https://git-scm.com/download/win
+
+Gradle: https://gradle.org/install/
+
+Java 11: https://jdk.java.net/java-se-ri/11
+
+DBeaver: https://dbeaver.io/download/
+
+Node.js: https://nodejs.org/en/
+
+MongoShell: https://www.mongodb.com/try/download/shell
