@@ -20,6 +20,20 @@ Repositório contendo o projeto desenvolvido do curso Comunicação entre Micros
 * **Spring Cloud Netflix OpenFeign**
 * **Axios**
 
+## Arquitetura Proposta
+
+No curso, desenvolveremos a seguinte aquitetura:
+
+![Arquitetura Proposta](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Arquitetura%20Proposta.png)
+
+Teremos 3 APIs:
+
+* **Auth-API**: API de Autenticação com Node.js 14, Express.js, Sequelize, PostgreSQL, JWT e Bcrypt.
+* **Sales-API**: API de Vendas com Node.js 14, Express.js, MongoDB, Mongoose, validação de JWT, RabbitMQ e Axios para clients HTTP.
+* **Product-API**: API de Produtos com Java 11, Spring Boot, Spring Data JPA, PostgreSQL, validação de JWT, RabbitMQ e Spring Cloud OpenFeign para clients HTTP.
+
+Também teremos toda a arquitetura rodando em containers docker via docker-compose.
+
 ## Comandos Docker
 
 Abaixo serão listados alguns dos comandos executados durante o curso para criação dos containers 
