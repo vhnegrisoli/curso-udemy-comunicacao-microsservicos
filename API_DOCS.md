@@ -1,8 +1,8 @@
-## Documentação dos endpoints
+# Documentação dos endpoints
 
-### Auth-API (base URL: http://localhost:8080)
+## Auth-API (base URL: http://localhost:8080)
 
-* **POST** - **/api/user/auth** - Gera um token de acesso
+### **POST** - **/api/user/auth** - Gera um token de acesso
 
 Headers:
 ```
@@ -34,9 +34,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZ
 Content-Type: application/json
 ```
 
-### Product-API (base URL: http://localhost:8081)
+## Product-API (base URL: http://localhost:8081)
 
-* **POST** - **/api/product** - Cria um novo produto
+### **POST** - **/api/product** - Cria um novo produto
 
 ```json
 {
@@ -66,7 +66,7 @@ Resposta:
 }
 ```
 
-* **GET** - **/api/product** - Busca todos os produtos
+### **GET** - **/api/product** - Busca todos os produtos
 
 Resposta:
 
@@ -131,7 +131,7 @@ Resposta:
 ]
 ```
 
-* **GET** - **/api/product/{id}** - Busca um produto pelo ID
+### **GET** - **/api/product/{id}** - Busca um produto pelo ID
 
 Resposta (parâmetro id = 1001):
 
@@ -152,9 +152,9 @@ Resposta (parâmetro id = 1001):
 }
 ```
 
-### Sales-API (base URL: http://localhost:8082)
+## Sales-API (base URL: http://localhost:8082)
 
-* **POST** - **/api/order/create** - Cria um pedido
+### **POST** - **/api/order/create** - Cria um pedido
 
 Body:
 ```json
@@ -210,7 +210,7 @@ Resposta:
 }
 ```
 
-* **GET** - **/api/orders** - Busca todos os pedidos
+### **GET** - **/api/orders** - Busca todos os pedidos
 
 Resposta:
 
@@ -270,7 +270,7 @@ Resposta:
 }
 ```
 
-* **GET** - **/api/order/{orderId}** - Busca um pedido pelo ID
+### **GET** - **/api/order/{orderId}** - Busca um pedido pelo ID
 
 Resposta (parâmetro orderId = 6161cd32560fbede60d48efc):
 
@@ -306,7 +306,7 @@ Resposta (parâmetro orderId = 6161cd32560fbede60d48efc):
 }
 ```
 
-* **GET** - **/api/orders/products/{productId}** - Busca todos os pedidos de um produto
+### **GET** - **/api/orders/products/{productId}** - Busca todos os pedidos de um produto
 
 Resposta (parâmetro productId = 1001):
 
