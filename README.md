@@ -65,6 +65,60 @@ dos bancos de dados PostgreSQL, MongoDB e do message broker RabbitMQ:
 
 Para ignorar os logs, adicione a flag `-d`.
 
+## Documentação dos endpoints
+
+#### Auth-API (base URL: http://localhost:8080)
+
+* **POST** - **/api/user/auth**
+
+Headers:
+```
+Content-Type: application/json
+```
+
+Body:
+```json
+{
+    "email": "testeuser1@gmail.com",
+    "password": "123456"
+}
+```
+Obs.: todos os endpoints de todas as APIs precisam dos seguintes headers:
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2MzM3OTk5MzUsImV4cCI6MTYzMzg4NjMzNX0.2AWPeoHSYUW_nGeLsx6rEOhm99ZfNZ8pQXPTJ0fwbDU
+
+Content-Type: application/json
+```
+
+#### Sales-API (base URL: http://localhost:8082)
+
+* **POST** - **/api/order/create**
+
+Body:
+```json
+{
+  "products": [
+    {
+      "productId": 1001,
+      "quantity": 1
+    },
+    {
+      "productId": 1002,
+      "quantity": 1
+    },
+    {
+      "productId": 1003,
+      "quantity": 1
+    }
+  ]
+}
+```
+
+* **GET** - **/api/orders**
+* **GET** - **/api/order/{orderId}**
+* **GET** - **/api/orders/products/{productId}**
+
 ## Autor
 
 ### Victor Hugo Negrisoli
