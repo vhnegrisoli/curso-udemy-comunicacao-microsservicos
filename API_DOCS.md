@@ -31,12 +31,28 @@ Resposta:
 }
 ```
 
-Obs.: todos os endpoints de todas as APIs precisam dos seguintes headers:
+**Obs.: todos os endpoints dos serviços Product-API e Sales-API precisam do header de autorização:**
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2MzM3OTk5MzUsImV4cCI6MTYzMzg4NjMzNX0.2AWPeoHSYUW_nGeLsx6rEOhm99ZfNZ8pQXPTJ0fwbDU
+```
 
-Content-Type: application/json
+Caso **não seja enviado o token**, a resposta será:
+
+```json
+{
+    "status": 401,
+    "message": "The access token was not informed."
+}
+```
+
+Caso envie um **token inválido**, a resposta será:
+
+```json
+{
+    "status": 401,
+    "message": "Error while trying to proccess the Access Token."
+}
 ```
 
 # Product-API (base URL: http://localhost:8081)
