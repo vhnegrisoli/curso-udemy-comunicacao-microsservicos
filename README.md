@@ -17,7 +17,7 @@ Repositório contendo o projeto desenvolvido do curso Comunicação entre Micros
 * **Docker**
 * **docker-compose**
 * **JWT**
-* **Spring Cloud Netflix OpenFeign**
+* **Spring Cloud OpenFeign**
 * **Axios**
 
 ## Arquitetura Proposta
