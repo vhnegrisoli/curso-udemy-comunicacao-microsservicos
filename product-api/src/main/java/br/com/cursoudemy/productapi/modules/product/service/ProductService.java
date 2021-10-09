@@ -8,6 +8,7 @@ import br.com.cursoudemy.productapi.modules.product.model.Product;
 import br.com.cursoudemy.productapi.modules.product.repository.ProductRepository;
 import br.com.cursoudemy.productapi.modules.sales.client.SalesClient;
 import br.com.cursoudemy.productapi.modules.sales.dto.SalesConfirmationDTO;
+import br.com.cursoudemy.productapi.modules.sales.dto.SalesProductResponse;
 import br.com.cursoudemy.productapi.modules.sales.enums.SalesStatus;
 import br.com.cursoudemy.productapi.modules.sales.rabbitmq.SalesConfirmationSender;
 import br.com.cursoudemy.productapi.modules.supplier.service.SupplierService;
@@ -144,6 +145,13 @@ public class ProductService {
 
     public SuccessResponse delete(Integer id) {
         validateInformedId(id);
+        if (!productRepository.existsById(id)) {
+            throw new ValidationException("The product does not exists.");
+        }
+        var sales = getSalesByProductId(id);
+        if (!isEmpty(sales.getSalesIds())) {
+            throw new ValidationException("The product cannot be deleted. There are sales for it.");
+        }
         productRepository.deleteById(id);
         return SuccessResponse.create("The product was deleted.");
     }
@@ -211,14 +219,17 @@ public class ProductService {
 
     public ProductSalesResponse findProductSales(Integer id) {
         var product = findById(id);
+        var sales = getSalesByProductId(product.getId());
+        return ProductSalesResponse.of(product, sales.getSalesIds());
+    }
+
+    private SalesProductResponse getSalesByProductId(Integer productId) {
         try {
-            var sales = salesClient
-                .findSalesByProductId(product.getId())
+            return salesClient
+                .findSalesByProductId(productId)
                 .orElseThrow(() -> new ValidationException("The sales was not found by this product."));
-            return ProductSalesResponse.of(product, sales.getSalesIds());
         } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new ValidationException("There was an error trying to get the product's sales.");
+            throw new ValidationException("The sales could not be found.");
         }
     }
 
