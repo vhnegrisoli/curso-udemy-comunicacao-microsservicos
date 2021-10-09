@@ -1,6 +1,10 @@
 # Documentação dos endpoints
 
-## Auth-API (base URL: http://localhost:8080)
+* A aplicação Auth-API tem apenas um endpoint, o de autenticação.
+* A aplicação Product-API tem 3 módulos com vários endpoints, de produtos, categorias e fornecedores.
+* A aplicação Sales-API tem apenas 4 endpoints.
+
+# Auth-API (base URL: http://localhost:8080)
 
 ### **POST** - **/api/user/auth** - Gera um token de acesso
 
@@ -35,7 +39,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZ
 Content-Type: application/json
 ```
 
-## Product-API (base URL: http://localhost:8081)
+# Product-API (base URL: http://localhost:8081)
+
+---
+
+## Módulo de Produtos
 
 ### **POST** - **/api/product** - Cria um novo produto
 
@@ -382,7 +390,203 @@ Resposta:
 }
 ```
 
-## Sales-API (base URL: http://localhost:8082)
+---
+
+## Módulo de Fornecedores
+
+### **POST** - **/api/supplier** - Cria um novo fornecedor
+
+Body:
+
+```json
+{
+    "name": "Amazon Brasil"
+}
+```
+
+Resposta:
+
+```json
+{
+    "id": 1,
+    "name": "Amazon Brasil"
+}
+```
+
+### **PUT** - **/api/supplier/{id}** - Atualiza um fornecedor
+
+Body:
+
+```json
+{
+    "name": "Amazon BR"
+}
+```
+
+Resposta (parâmetro id = 1):
+
+```json
+{
+    "id": 1,
+    "name": "Amazon BR"
+}
+```
+
+### **DELETE** - **/api/supplier/{id}** - Deleta um fornecedor
+
+Resposta (parâmetro id = 1):
+
+```json
+{
+    "status": 200,
+    "message": "The supplier was deleted."
+}
+```
+
+### **GET** - **/api/supplier** - Busca todos os fornecedores
+
+Resposta: 
+
+```json
+[
+    {
+        "id": 1000,
+        "name": "Panini Comics"
+    },
+    {
+        "id": 1001,
+        "name": "Amazon"
+    }
+]
+```
+
+### **GET** - **/api/supplier/{id}** - Busca um fornecedor pelo ID
+
+Resposta (parâmetro id = 1000): 
+
+```json
+{
+    "id": 1000,
+    "name": "Panini Comics"
+}
+```
+
+### **GET** - **/api/supplier/name/{name}** - Busca um fornecedor pelo nome sem case sensitive
+
+Resposta (parâmetro name = pani): 
+
+```json
+[
+    {
+        "id": 1000,
+        "name": "Panini Comics"
+    }
+]
+```
+
+---
+
+## Módulo de Categorias
+
+### **POST** - **/api/category** - Cria uma nova categoria
+
+Body:
+
+```json
+{
+    "description": "Comic Books"
+}
+```
+
+Resposta:
+
+```json
+{
+    "id": 2,
+    "description": "Comic Books"
+}
+```
+
+### **PUT** - **/api/category/{id}** - Atualiza uma categoria
+
+Body:
+
+```json
+{
+    "description": "Comics"
+}
+```
+
+Resposta (parâmetro id = 2):
+
+```json
+{
+    "id": 2,
+    "name": "Comics"
+}
+```
+
+### **DELETE** - **/api/cateogry/{id}** - Deleta uma cateogria
+
+Resposta (parâmetro id = 2):
+
+```json
+{
+    "status": 200,
+    "message": "The category was deleted."
+}
+```
+
+### **GET** - **/api/category** - Busca todas as categorias
+
+Resposta: 
+
+```json
+[
+    {
+        "id": 1000,
+        "description": "Comic Books"
+    },
+    {
+        "id": 1001,
+        "description": "Movies"
+    },
+    {
+        "id": 1002,
+        "description": "Books"
+    }
+]
+```
+
+### **GET** - **/api/category/{id}** - Busca uma categoria pelo ID
+
+Resposta (parâmetro id = 1000): 
+
+```json
+{
+    "id": 1000,
+    "description": "Comic Books"
+}
+```
+
+### **GET** - **/api/category/description/{description}** - Busca uma categoria pela descrição sem case sensitive
+
+Resposta (parâmetro description = book): 
+
+```json
+[
+    {
+        "id": 1000,
+        "description": "Comic Books"
+    },
+    {
+        "id": 1002,
+        "description": "Books"
+    }
+]
+```
+
+# Sales-API (base URL: http://localhost:8082)
 
 ### **POST** - **/api/order/create** - Cria um pedido
 
