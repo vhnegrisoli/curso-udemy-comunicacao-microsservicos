@@ -67,7 +67,7 @@ Para ignorar os logs, adicione a flag `-d`.
 
 ## Documentação dos endpoints
 
-
+A documentação da API se faz presente no arquivo [API_DOCS.md](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/API_DOCS.md).
 
 ## Autor
 
