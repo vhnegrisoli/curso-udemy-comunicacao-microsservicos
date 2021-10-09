@@ -10,6 +10,7 @@ Content-Type: application/json
 ```
 
 Body:
+
 ```json
 {
     "email": "testeuser1@gmail.com",
@@ -38,6 +39,8 @@ Content-Type: application/json
 
 ### **POST** - **/api/product** - Cria um novo produto
 
+Body:
+
 ```json
 {
     "name": "Superman - As Quatro Estações",
@@ -63,6 +66,49 @@ Resposta:
     },
     "quantity_available": 3,
     "created_at": "09/10/2021 16:38:43"
+}
+```
+
+### **PUT** - **/api/product/{id}** - Atualiza um produto
+
+Body:
+
+```json
+{
+    "name": "Superman - As Quatro Estações 2",
+    "quantity_available": 3,
+    "supplierId": 1000,
+    "categoryId": 1000
+}
+```
+
+Resposta (parâmetro id = 1001):
+
+```json
+{
+    "id": 1001,
+    "name": "Superman - As Quatro Estações 2",
+    "supplier": {
+        "id": 1000,
+        "name": "Panini Comics"
+    },
+    "category": {
+        "id": 1000,
+        "description": "Comic Books"
+    },
+    "quantity_available": 3,
+    "created_at": null
+}
+```
+
+### **DELETE** - **/api/product/{id}** - Remove um produto
+
+Resposta (parâmetro id = 2):
+
+```json
+{
+    "status": 200,
+    "message": "The product was deleted."
 }
 ```
 
@@ -148,6 +194,190 @@ Resposta (parâmetro id = 1001):
         "description": "Comic Books"
     },
     "quantity_available": 9,
+    "created_at": "09/10/2021 14:11:15"
+}
+```
+
+### **GET** - **/api/product/name/{name}** - Busca um produto pelo nome sem case sensitive
+
+Resposta (parâmetro name = ter):
+
+```json
+[
+    {
+        "id": 1001,
+        "name": "Crise nas Infinitas Terras",
+        "supplier": {
+            "id": 1000,
+            "name": "Panini Comics"
+        },
+        "category": {
+            "id": 1000,
+            "description": "Comic Books"
+        },
+        "quantity_available": 9,
+        "created_at": "09/10/2021 14:11:15"
+    },
+    {
+        "id": 1002,
+        "name": "Interestelar",
+        "supplier": {
+            "id": 1001,
+            "name": "Amazon"
+        },
+        "category": {
+            "id": 1001,
+            "description": "Movies"
+        },
+        "quantity_available": 4,
+        "created_at": "09/10/2021 14:11:15"
+    },
+    {
+        "id": 1003,
+        "name": "Harry Potter E A Pedra Filosofal",
+        "supplier": {
+            "id": 1001,
+            "name": "Amazon"
+        },
+        "category": {
+            "id": 1002,
+            "description": "Books"
+        },
+        "quantity_available": 2,
+        "created_at": "09/10/2021 14:11:16"
+    }
+]
+```
+
+### **GET** - **/api/product/category/{categoryId}** - Busca um produto pelo ID da categoria
+
+Resposta (parâmetro categoryId = 1000):
+
+```json
+[
+    {
+        "id": 1001,
+        "name": "Crise nas Infinitas Terras",
+        "supplier": {
+            "id": 1000,
+            "name": "Panini Comics"
+        },
+        "category": {
+            "id": 1000,
+            "description": "Comic Books"
+        },
+        "quantity_available": 9,
+        "created_at": "09/10/2021 14:11:15"
+    },
+    {
+        "id": 1,
+        "name": "Superman - As Quatro Estações",
+        "supplier": {
+            "id": 1000,
+            "name": "Panini Comics"
+        },
+        "category": {
+            "id": 1000,
+            "description": "Comic Books"
+        },
+        "quantity_available": 3,
+        "created_at": "09/10/2021 16:38:43"
+    }
+]
+```
+
+### **GET** - **/api/product/supplier/{supplierId}** - Busca um produto pelo ID do fornecedor
+
+Resposta (parâmetro supplierId = 1001):
+
+```json
+[
+    {
+        "id": 1002,
+        "name": "Interestelar",
+        "supplier": {
+            "id": 1001,
+            "name": "Amazon"
+        },
+        "category": {
+            "id": 1001,
+            "description": "Movies"
+        },
+        "quantity_available": 4,
+        "created_at": "09/10/2021 14:11:15"
+    },
+    {
+        "id": 1003,
+        "name": "Harry Potter E A Pedra Filosofal",
+        "supplier": {
+            "id": 1001,
+            "name": "Amazon"
+        },
+        "category": {
+            "id": 1002,
+            "description": "Books"
+        },
+        "quantity_available": 2,
+        "created_at": "09/10/2021 14:11:16"
+    }
+]
+```
+
+
+### **POST** - **/api/product/check-stock** - Verifica o estoque de um array de produtos
+
+Body:
+
+```json
+{
+    "products": [
+        {
+            "productId": 1001,
+            "quantity": 1
+        },
+        {
+            "productId": 1002,
+            "quantity": 1
+        },
+        {
+            "productId": 1003,
+            "quantity": 1
+        }
+    ]
+}
+```
+
+Resposta:
+
+```json
+{
+    "status": 200,
+    "message": "The stock is ok!"
+}
+```
+
+### **GET** - **/api/product/{productId}/sales** - Busca o produto com todos os IDs dos pedidos realizados por ele
+
+Resposta:
+
+```json
+{
+    "id": 1001,
+    "name": "Superman - As Quatro Estações 2",
+    "supplier": {
+        "id": 1000,
+        "name": "Panini Comics"
+    },
+    "category": {
+        "id": 1000,
+        "description": "Comic Books"
+    },
+    "sales": [
+        "6161cd32560fbede60d48efc",
+        "6161cd32560fbede60d48efe",
+        "6161d007560fbede60d48f01"
+    ],
+    "quantity_available": 3,
     "created_at": "09/10/2021 14:11:15"
 }
 ```
