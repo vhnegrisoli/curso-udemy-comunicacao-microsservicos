@@ -1,3 +1,3 @@
 export const PENDING = "PENDING";
-export const ACCEPTED = "ACCEPTED";
+export const APPROVED = "APPROVED";
 export const REJECTED = "REJECTED";
