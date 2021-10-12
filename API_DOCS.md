@@ -6,6 +6,14 @@
 
 # Auth-API (base URL: http://localhost:8080)
 
+### **GET** - **/api/initial-data** - Cria dados iniciais da aplicação (não necessita headers transactionid e Authorization)
+
+```json
+{
+    "message": "Data created."
+}
+```
+
 ### **POST** - **/api/user/auth** - Gera um token de acesso
 
 Headers:
@@ -31,10 +39,20 @@ Resposta:
 }
 ```
 
-**Obs.: todos os endpoints dos serviços Product-API e Sales-API precisam do header de autorização:**
+**Obs.: todos os endpoints dos serviços Product-API e Sales-API precisam do header de autorização e transactionid:**
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2MzM3OTk5MzUsImV4cCI6MTYzMzg4NjMzNX0.2AWPeoHSYUW_nGeLsx6rEOhm99ZfNZ8pQXPTJ0fwbDU
+transactionid: 843e5420-e767-45f3-aee3-ca9a16233352
+```
+
+Caso **não seja enviado o transactionid**, a resposta será:
+
+```json
+{
+    "status": 400,
+    "message": "The transactionid header is required."
+}
 ```
 
 Caso **não seja enviado o token**, a resposta será:
@@ -604,6 +622,14 @@ Resposta (parâmetro description = book):
 
 # Sales-API (base URL: http://localhost:8082)
 
+### **GET** - **/api/initial-data** - Cria dados iniciais da aplicação (não necessita headers transactionid e Authorization)
+
+```json
+{
+    "message": "Data created."
+}
+```
+
 ### **POST** - **/api/order/create** - Cria um pedido
 
 Body:
@@ -654,6 +680,8 @@ Resposta:
         "status": "PENDING",
         "createdAt": "2021-10-09T17:23:18.450Z",
         "updatedAt": "2021-10-09T17:23:18.450Z",
+        "transactionid": "7eb42d2e-1a37-45e7-b950-a0a0a9b78fb7",
+        "serviceid": "8cbf358c-19f0-4a37-ac6e-6c09ec9e8f13",
         "_id": "6161d007560fbede60d48f01",
         "__v": 0
     }
@@ -692,6 +720,8 @@ Resposta:
             "status": "APPROVED",
             "createdAt": "2021-10-09T17:11:14.453Z",
             "updatedAt": "2021-10-09T17:11:14.453Z",
+            "transactionid": "7eb42d2e-1a37-45e7-b950-a0a0a9b78fb7",
+            "serviceid": "8cbf358c-19f0-4a37-ac6e-6c09ec9e8f13",
             "__v": 0
         },
         {
@@ -714,6 +744,8 @@ Resposta:
             "status": "REJECTED",
             "createdAt": "2021-10-09T17:11:14.489Z",
             "updatedAt": "2021-10-09T17:11:14.489Z",
+            "transactionid": "7eb42d2e-1a37-45e7-b950-a0a0a9b78fb7",
+            "serviceid": "8cbf358c-19f0-4a37-ac6e-6c09ec9e8f13",
             "__v": 0
         }
     ]
@@ -751,6 +783,8 @@ Resposta (parâmetro orderId = 6161cd32560fbede60d48efc):
         "status": "APPROVED",
         "createdAt": "2021-10-09T17:11:14.453Z",
         "updatedAt": "2021-10-09T17:11:14.453Z",
+        "transactionid": "7eb42d2e-1a37-45e7-b950-a0a0a9b78fb7",
+        "serviceid": "8cbf358c-19f0-4a37-ac6e-6c09ec9e8f13",
         "__v": 0
     }
 }
