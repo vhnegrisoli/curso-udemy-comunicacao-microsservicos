@@ -21,7 +21,7 @@ const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     freezeTableName: true,
   },
   pool: {
-    acquire: 30000,
+    acquire: 180000,
   },
 });
 
