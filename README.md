@@ -52,6 +52,35 @@ O fluxo está descrito abaixo:
 * 10 - Caso dê algum problema na atualização, a API de produtos publicará uma mensagem na fila de confirmação de vendas com status REJECTED.
 * 11 - Por fim, a API de pedidos irá receber a mensagem de confirmação e atualizará o pedido com o status retornado na mensagem.
 
+## Logs e Tracing da API
+
+Todos os endpoints necessitam um header chamado **transactionid**, pois representará o ID que irá percorrer toda a requisição no serviço, e, caso essa aplicação chame outros microsserviços, esse **transactionid** será repassado. Todos os endpoints de entrada e saída irão logar os dados de entrada (JSON ou parâmetros) e o **transactionid**. 
+
+A cada requisição pra cada microsserviço, teremos um atributo **serviceid** gerado apenas para os logs desse serviço em si. Teremos então o **transactionid** que irá circular entre todos os microsserviços envolvidos na requisição, e cada microsserviço terá seu próprio **serviceid**.
+
+Fluxo de tracing nas requisições:
+
+**POST** - **/api/order** com **transactionid**: ef8347eb-2207-4610-86c0-657b4e5851a3
+
+```
+service-1:
+transactionid: ef8347eb-2207-4610-86c0-657b4e5851a3
+serviceid    : 6116a0f4-6c9f-491f-b180-ea31bea2d9de
+|
+| HTTP Request
+|----------------> service-2:
+                   transactionid: ef8347eb-2207-4610-86c0-657b4e5851a3
+                   serviceid    : 4e1261c1-9a0c-4a5d-bfc2-49744fd159c6
+                   |
+                   | HTTP Request
+                   |----------------> service-3: /api/check-stock
+                                      transactionid: ef8347eb-2207-4610-86c0-657b4e5851a3
+                                      serviceid    : b4fbc082-a49a-440d-b1d6-2bd0557fd189
+```
+
+Como podemos ver no fluxo acima, o **transactionid** ef8347eb-2207-4610-86c0-657b4e5851a3 manteve-se o mesmo nos 3 serviços, e cada serviço possui
+seu próprio **serviceid**.
+
 ## Comandos Docker
 
 Abaixo serão listados alguns dos comandos executados durante o curso para criação dos containers 
