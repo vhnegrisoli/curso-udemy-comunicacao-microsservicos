@@ -81,6 +81,10 @@ serviceid    : 6116a0f4-6c9f-491f-b180-ea31bea2d9de
 Como podemos ver no fluxo acima, o **transactionid** ef8347eb-2207-4610-86c0-657b4e5851a3 manteve-se o mesmo nos 3 serviços, e cada serviço possui
 seu próprio **serviceid**.
 
+Exemplo de um fluxo completo chamando 5 serviços e gerando **transactionid** e **serviceid**:
+
+![Tracing](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Tracing.png)
+
 ## Comandos Docker
 
 Abaixo serão listados alguns dos comandos executados durante o curso para criação dos containers 
