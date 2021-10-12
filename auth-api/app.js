@@ -8,10 +8,6 @@ const app = express();
 const env = process.env;
 const PORT = env.PORT || 8080;
 
-createInitialData();
-
-app.use(tracing);
-
 app.get("/api/status", (req, res) => {
   return res.status(200).json({
     service: "Auth-API",
@@ -21,7 +17,16 @@ app.get("/api/status", (req, res) => {
 });
 
 app.use(express.json());
+
+app.get("/api/initial-data", (req, res) => {
+  createInitialData();
+  return res.json({ message: "Data created." });
+});
+
+app.use(tracing);
+
 app.use(userRoutes);
+createInitialData();
 
 app.listen(PORT, () => {
   console.info(`Server started successfully at port ${PORT}`);
