@@ -126,6 +126,48 @@ Sending message: {"salesId":"6165b92addaf7fc9dd85dad0","status":"APPROVED","tran
 Recieving message from queue: {"salesId":"6165b92addaf7fc9dd85dad0","status":"APPROVED","transactionid":"8817508e-805c-48fb-9cb4-6a1e5a6e71e9"}
 ```
 
+## Documentação dos endpoints
+
+A documentação da API se faz presente no arquivo [API_DOCS.md](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/API_DOCS.md).
+
+## Deploy no Heroku
+
+As 3 APIs foram publicadas no Heroku, o repositório que foram publicados são esses:
+
+* Auth-API    - https://github.com/vhnegrisoli2018/auth-api (PostgreSQL e Coralogix Logging)
+* Product-API - https://github.com/vhnegrisoli2018/product-api (Coralogix Logging, Cloud MongoDB e CloudAQMP)
+* Sales-API   - https://github.com/vhnegrisoli2018/sales-api (Coralogix Logging Heroku Postgres e CloudAQMP)
+
+As URL base são:
+
+* Auth-API    - https://microsservicos-auth-api.herokuapp.com/
+* Product-API - https://microsservicos-product-api.herokuapp.com/
+* Sales-API   - https://microsservicos-sales-api.herokuapp.com/
+
+## Tracing com Coralogix Logging e Kibana
+
+O Coralogix Logging é um add-on do Heroku para adicionarmos um dashboard de status e visualização de logs das aplicações.
+
+Exemplo do dashboard do Coralogix Logging da aplicação Product-API:
+
+![Dashboard Product-API](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Coralogix%20Logging%20Dashboard.png)
+
+No Heroku, conseguimos realizar o tracing da aplicação através do nosso header **TransactionID** que é obrigatório em todos os endpoints.
+
+Abaixo foi mostrado um exemplo de tracing realizado com um pedido criado para o **TransactionID** com valor **1c75be8c-efbe-44d7-99ea-60564465c77a**.
+
+![Requisição](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Exemplo%20Rastreamento%20Requisi%C3%A7%C3%A3o.png)
+
+Após realizada a requisição, vamos ao nosso Kibana disponibilizado pelo Coralogix Logging da aplicaçãode Sales-API e pesquisaremos os logs pelo valor **1c75be8c-efbe-44d7-99ea-60564465c77a**:
+
+![Kibana Sales-API](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Tracing%20Sales-API.png)
+
+Podemos ver vários logs de entrada e saída, contendo o JSON de entrada e saída. Também podemos visualizar que foi feita uma chamada ao microsserviço de Product-API via HTTP REST, e também uma comunicação via mensagem do Rabbit, e conseguimos visualizar esses logs sendo recebidos lá na aplicação de Product-API:
+
+![Kibana Product-API](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Tracing%20Product-API.png)
+
+Com isso, conseguimos rastrear todos os dados de entrada e saída dos endpoints, o ID da transação que circula entre eles via chamada REST e via mensageria, facilitando no acompanhamento de logs de uma requisição específica e, principalmente, no processo de troubleshooting.
+
 ## Comandos Docker
 
 Abaixo serão listados alguns dos comandos executados durante o curso para criação dos containers 
@@ -156,24 +198,6 @@ dos bancos de dados PostgreSQL, MongoDB e do message broker RabbitMQ:
 `docker-compose up --build`
 
 Para ignorar os logs, adicione a flag `-d`.
-
-## Documentação dos endpoints
-
-A documentação da API se faz presente no arquivo [API_DOCS.md](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/API_DOCS.md).
-
-## Deploy no Heroku
-
-As 3 APIs foram publicadas no Heroku, o repositório que foram publicados são esses:
-
-* Auth-API    - https://github.com/vhnegrisoli2018/auth-api (PostgreSQL e Coralogix Logging)
-* Product-API - https://github.com/vhnegrisoli2018/product-api (Coralogix Logging, Cloud MongoDB e CloudAQMP)
-* Sales-API   - https://github.com/vhnegrisoli2018/sales-api (Coralogix Logging Heroku Postgres e CloudAQMP)
-
-As URL base são:
-
-* Auth-API    - https://microsservicos-auth-api.herokuapp.com/
-* Product-API - https://microsservicos-product-api.herokuapp.com/
-* Sales-API   - https://microsservicos-sales-api.herokuapp.com/
 
 ## Autor
 
