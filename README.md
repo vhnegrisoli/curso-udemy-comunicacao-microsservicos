@@ -10,15 +10,18 @@ Repositório contendo o projeto desenvolvido do curso Comunicação entre Micros
 * **Node.js 14**
 * **ES6 Modules**
 * **Express.js**
-* **MongoDB**
+* **MongoDB (Container e Cloud MongoDB)**
 * **API REST**
-* **PostgreSQL**
-* **RabbitMQ**
+* **PostgreSQL (Container e Heroku Postgres)**
+* **RabbitMQ (Container e CloudAMQP)**
 * **Docker**
 * **docker-compose**
 * **JWT**
 * **Spring Cloud OpenFeign**
 * **Axios**
+* **Heroku**
+* **Coralogix Logging**
+* **Kibana**
 
 ## Arquitetura Proposta
 
@@ -157,6 +160,20 @@ Para ignorar os logs, adicione a flag `-d`.
 ## Documentação dos endpoints
 
 A documentação da API se faz presente no arquivo [API_DOCS.md](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/API_DOCS.md).
+
+## Deploy no Heroku
+
+As 3 APIs foram publicadas no Heroku, o repositório que foram publicados são esses:
+
+* Auth-API    - https://github.com/vhnegrisoli2018/auth-api (PostgreSQL e Coralogix Logging)
+* Product-API - https://github.com/vhnegrisoli2018/product-api (Coralogix Logging, Cloud MongoDB e CloudAQMP)
+* Sales-API   - https://github.com/vhnegrisoli2018/sales-api (Coralogix Logging Heroku Postgres e CloudAQMP)
+
+As URL base são:
+
+* Auth-API    - https://microsservicos-auth-api.herokuapp.com/
+* Product-API - https://microsservicos-product-api.herokuapp.com/
+* Sales-API   - https://microsservicos-sales-api.herokuapp.com/
 
 ## Autor
 
