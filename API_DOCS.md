@@ -4,7 +4,9 @@
 * A aplicação Product-API tem 3 módulos com vários endpoints, de produtos, categorias e fornecedores.
 * A aplicação Sales-API tem apenas 4 endpoints.
 
-# Auth-API (base URL: http://localhost:8080)
+# Auth-API
+
+## Base URL: http://localhost:8080 ou https://microsservicos-auth-api.herokuapp.com
 
 ### **GET** - **/api/initial-data** - Cria dados iniciais da aplicação (não necessita headers transactionid e Authorization)
 
@@ -73,7 +75,9 @@ Caso envie um **token inválido**, a resposta será:
 }
 ```
 
-# Product-API (base URL: http://localhost:8081)
+# Product-API
+
+## Base URL: http://localhost:8081 ou https://microsservicos-product-api.herokuapp.com
 
 ---
 
@@ -620,7 +624,9 @@ Resposta (parâmetro description = book):
 ]
 ```
 
-# Sales-API (base URL: http://localhost:8082)
+# Sales-API
+
+## Base URL: http://localhost:8082 ou https://microsservicos-sales-api.herokuapp.com
 
 ### **GET** - **/api/initial-data** - Cria dados iniciais da aplicação (não necessita headers transactionid e Authorization)
 
