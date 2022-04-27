@@ -3,7 +3,11 @@ import { v4 as uuidv4 } from "uuid";
 
 export async function createInitialData() {
   try {
-    await Order.collection.drop();
+    let existingData = await Order.find();
+    if (existingData && existingData.length > 0) {
+      console.info("Remove existing data...");
+      await Order.collection.drop();
+    }
     await Order.create({
       products: [
         {
