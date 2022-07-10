@@ -143,8 +143,8 @@ public class ProductService {
         return productRepository.existsByCategoryId(categoryId);
     }
 
-    public Boolean existsBySupplierId(Integer categoryId) {
-        return productRepository.existsByCategoryId(categoryId);
+    public Boolean existsBySupplierId(Integer supplierId) {
+        return productRepository.existsBySupplierId(supplierId);
     }
 
     public SuccessResponse delete(Integer id) {
