@@ -1,10 +1,9 @@
 package br.com.cursoudemy.productapi.config;
 
 import br.com.cursoudemy.productapi.config.exception.ValidationException;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
 
 public class RequestUtil {
 

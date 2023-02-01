@@ -4,12 +4,15 @@ import br.com.cursoudemy.productapi.config.exception.AuthenticationException;
 import br.com.cursoudemy.productapi.modules.jwt.dto.JwtResponse;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import static org.springframework.util.ObjectUtils.isEmpty;
 
 @Service
+@RequiredArgsConstructor
 public class JwtService {
 
     private static final String EMPTY_SPACE = " ";
