@@ -4,7 +4,7 @@ import br.com.cursoudemy.productapi.config.exception.ValidationException;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class RequestUtil {
 

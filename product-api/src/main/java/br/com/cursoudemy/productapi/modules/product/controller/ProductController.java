@@ -1,19 +1,22 @@
 package br.com.cursoudemy.productapi.modules.product.controller;
 
 import br.com.cursoudemy.productapi.config.exception.SuccessResponse;
-import br.com.cursoudemy.productapi.modules.product.dto.*;
+import br.com.cursoudemy.productapi.modules.product.dto.ProductCheckStockRequest;
+import br.com.cursoudemy.productapi.modules.product.dto.ProductRequest;
+import br.com.cursoudemy.productapi.modules.product.dto.ProductResponse;
+import br.com.cursoudemy.productapi.modules.product.dto.ProductSalesResponse;
 import br.com.cursoudemy.productapi.modules.product.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/product")
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
 
     @PostMapping
     public ProductResponse save(@RequestBody ProductRequest request) {
