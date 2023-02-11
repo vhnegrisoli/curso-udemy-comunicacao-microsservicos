@@ -1,0 +1,1182 @@
+{
+	"info": {
+		"_postman_id": "4c5ed97f-3617-440c-b28c-910f5a88a95c",
+		"name": "Curso Comunicação Entre Microsserviços",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth-API",
+			"item": [
+				{
+					"name": "Get Auth Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "transactionId",
+								"value": "as6d15a6s1da6sd1",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"testeuser1@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "transactionId",
+								"value": "as6d15a6s1da6sd1",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU3NzA1NDMsImV4cCI6MTY3NTg1Njk0M30.jMrP7oyBhs3Sf2uKb1ljuqTeCs9NCWEoZFLLecac8As",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"testeuser1@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/email/testeuser1@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"email",
+								"testeuser1@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load Initial Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/initial-data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"initial-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check API Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product-API",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Create Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjkwNjUsImV4cCI6MTY3NTUxNTQ2NX0.TVUR5HUIxNBagamTh0OieNEEcfnWLQmgYvTXpraXrP0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Superman - As Quatro Estações\",\r\n    \"quantity_available\": 3,\r\n    \"supplierId\": 1000,\r\n    \"categoryId\": 1000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check Stock",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjkwNjUsImV4cCI6MTY3NTUxNTQ2NX0.TVUR5HUIxNBagamTh0OieNEEcfnWLQmgYvTXpraXrP0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"productId\": 1001,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"productId\": 1002,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"productId\": 1003,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/product/check-stock",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"check-stock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjkwNjUsImV4cCI6MTY3NTUxNTQ2NX0.TVUR5HUIxNBagamTh0OieNEEcfnWLQmgYvTXpraXrP0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Superman - As Quatro Estações 2\",\r\n    \"quantity_available\": 3,\r\n    \"supplierId\": 1000,\r\n    \"categoryId\": 1000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/product/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjkwNjUsImV4cCI6MTY3NTUxNTQ2NX0.TVUR5HUIxNBagamTh0OieNEEcfnWLQmgYvTXpraXrP0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Superman - As Quatro Estações 2\",\r\n    \"quantity_available\": 3,\r\n    \"supplierId\": 1000,\r\n    \"categoryId\": 1000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/product/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Sales By Product ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzYwMjY5OTIsImV4cCI6MTY3NjExMzM5Mn0.J5KmPAev4WDT5rNWG7hTpg0N2CzZjUIx3PVv8wCrauQ",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/product/1001/sales",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"1001",
+										"sales"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzYwMjY5OTIsImV4cCI6MTY3NjExMzM5Mn0.J5KmPAev4WDT5rNWG7hTpg0N2CzZjUIx3PVv8wCrauQ",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Product By ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjkwNjUsImV4cCI6MTY3NTUxNTQ2NX0.TVUR5HUIxNBagamTh0OieNEEcfnWLQmgYvTXpraXrP0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/product/1001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"1001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Products By Name",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjkwNjUsImV4cCI6MTY3NTUxNTQ2NX0.TVUR5HUIxNBagamTh0OieNEEcfnWLQmgYvTXpraXrP0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/product/name/Crise",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"name",
+										"Crise"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Products By Category ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjkwNjUsImV4cCI6MTY3NTUxNTQ2NX0.TVUR5HUIxNBagamTh0OieNEEcfnWLQmgYvTXpraXrP0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/product/category/1001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"category",
+										"1001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Products By Supplier ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjkwNjUsImV4cCI6MTY3NTUxNTQ2NX0.TVUR5HUIxNBagamTh0OieNEEcfnWLQmgYvTXpraXrP0",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/product/supplier/1001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"product",
+										"supplier",
+										"1001"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Find All Categories",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Category By ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/category/1000",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category",
+										"1000"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Category By Description",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/category/description/Com",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category",
+										"description",
+										"Com"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "as4d56as6sa",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Comic Books\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Category",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "as4d56as6sa",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Comics\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/category/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Category",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "as4d56as6sa",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Comics\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/category/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Suppliers",
+					"item": [
+						{
+							"name": "Find All Suppliers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/supplier",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Category By ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/supplier/1000",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier",
+										"1000"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Supplier By Name",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "1a6sd1a56sd",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8081/api/supplier/name/Pan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier",
+										"name",
+										"Pan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Supplier",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "as4d56as6sa",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Amazon Brasil\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/supplier",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Supplier",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "as4d56as6sa",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Amazon EUA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/supplier/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Supplier",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "transactionId",
+										"value": "as4d56as6sa",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Comics\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/supplier/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"supplier",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Check API Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "transactionId",
+								"value": "as1d51as5d6sa",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU3NzE1NjYsImV4cCI6MTY3NTg1Nzk2Nn0.Wc3DBf0Zi3NoctP_w-cfv89TzpnVBvjckxxpYwfe4yo",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sales-API",
+			"item": [
+				{
+					"name": "Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "transactionId",
+								"value": "asdasdasdasasdasd",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzYwMjY5OTIsImV4cCI6MTY3NjExMzM5Mn0.J5KmPAev4WDT5rNWG7hTpg0N2CzZjUIx3PVv8wCrauQ",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    {\r\n      \"productId\": 1001,\r\n      \"quantity\": 1\r\n    },\r\n    {\r\n      \"productId\": 1002,\r\n      \"quantity\": 1\r\n    },\r\n    {\r\n      \"productId\": 1003,\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/order/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"order",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check API Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Order by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "transactionId",
+								"value": "ORDER_EVENT",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzYwMjY5OTIsImV4cCI6MTY3NjExMzM5Mn0.J5KmPAev4WDT5rNWG7hTpg0N2CzZjUIx3PVv8wCrauQ",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    {\r\n      \"productId\": 1001,\r\n      \"quantity\": 1\r\n    },\r\n    {\r\n      \"productId\": 1002,\r\n      \"quantity\": 1\r\n    },\r\n    {\r\n      \"productId\": 1003,\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/order/63e628e0b3729d494219d5d2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"order",
+								"63e628e0b3729d494219d5d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Order by ProductID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "transactionId",
+								"value": "ORDER_EVENT",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\r\n    {\r\n      \"productId\": 1001,\r\n      \"quantity\": 1\r\n    },\r\n    {\r\n      \"productId\": 1002,\r\n      \"quantity\": 1\r\n    },\r\n    {\r\n      \"productId\": 1003,\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/orders/product/1001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"orders",
+								"product",
+								"1001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load Initial Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/initial-data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"initial-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "transactionId",
+								"value": "as5d1a6sd6sad5",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoVXNlciI6eyJpZCI6MSwibmFtZSI6IlVzZXIgVGVzdCAxIiwiZW1haWwiOiJ0ZXN0ZXVzZXIxQGdtYWlsLmNvbSJ9LCJpYXQiOjE2NzU0MjUyNjQsImV4cCI6MTY3NTUxMTY2NH0.pKLWRZYkumK8ddxC9OjG1Nk-7rG_kJ9qR8fvD4c2zn4",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8082/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

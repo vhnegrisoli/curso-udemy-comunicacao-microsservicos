@@ -5,23 +5,32 @@ Repositório contendo o projeto desenvolvido do curso Comunicação entre Micros
 ## Tecnologias
 
 * **Java 11**
-* **Spring Boot**
+* **Spring Boot 2**
 * **Javascript ES6**
 * **Node.js 14**
 * **ES6 Modules**
 * **Express.js**
 * **MongoDB (Container e Cloud MongoDB)**
 * **API REST**
-* **PostgreSQL (Container e Heroku Postgres)**
+* **PostgreSQL (Container)**
 * **RabbitMQ (Container e CloudAMQP)**
 * **Docker**
 * **docker-compose**
 * **JWT**
 * **Spring Cloud OpenFeign**
 * **Axios**
-* **Heroku**
-* **Coralogix Logging**
-* **Kibana**
+
+## Atualizações
+
+Em Fevereiro de 2023, foram realizadas as seguintes atualizações no projeto:
+
+* Java 17
+* Spring Boot 3.0.2
+* Gradle 7.6
+* Substituição de Field Injection para Constructor Injection no Spring
+* Substituição do Spring Cloud OpenFeign para HTTP Interfaces
+* Atualização do Express.js para última versão (4.18.2)
+* Atualização de todas as bibliotecas do Java e Node.js
 
 ## Arquitetura Proposta
 
@@ -130,43 +139,15 @@ Recieving message from queue: {"salesId":"6165b92addaf7fc9dd85dad0","status":"AP
 
 A documentação da API se faz presente no arquivo [API_DOCS.md](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/API_DOCS.md).
 
-## Deploy no Heroku
+## Collection do Postman
 
-As 3 APIs foram publicadas no Heroku, o repositório que foram publicados são esses:
+Foi adicionada uma Collection para todos os endpoints via Postman. 
 
-* Auth-API    - https://github.com/vhnegrisoli2018/auth-api (PostgreSQL e Coralogix Logging)
-* Product-API - https://github.com/vhnegrisoli2018/product-api (Coralogix Logging, Cloud MongoDB e CloudAQMP)
-* Sales-API   - https://github.com/vhnegrisoli2018/sales-api (Coralogix Logging Heroku Postgres e CloudAQMP)
+Basta realizar o download [deste arquivo](Conte%C3%BAdos/Collection.json) e importar no Postman.
 
-As URL base são:
+Após importado, você conseguirá visualizar os endpoints da seguinte maneira:
 
-* Auth-API    - https://microsservicos-auth-api.herokuapp.com/
-* Product-API - https://microsservicos-product-api.herokuapp.com/
-* Sales-API   - https://microsservicos-sales-api.herokuapp.com/
-
-## Tracing com Coralogix Logging e Kibana
-
-O Coralogix Logging é um add-on do Heroku para adicionarmos um dashboard de status e visualização de logs das aplicações.
-
-Exemplo do dashboard do Coralogix Logging da aplicação Product-API:
-
-![Dashboard Product-API](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Coralogix%20Logging%20Dashboard.png)
-
-No Heroku, conseguimos realizar o tracing da aplicação através do nosso header **TransactionID** que é obrigatório em todos os endpoints.
-
-Abaixo foi mostrado um exemplo de tracing realizado com um pedido criado para o **TransactionID** com valor **1c75be8c-efbe-44d7-99ea-60564465c77a**.
-
-![Requisição](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Exemplo%20Rastreamento%20Requisi%C3%A7%C3%A3o.png)
-
-Após realizada a requisição, vamos ao nosso Kibana disponibilizado pelo Coralogix Logging da aplicaçãode Sales-API e pesquisaremos os logs pelo valor **1c75be8c-efbe-44d7-99ea-60564465c77a**:
-
-![Kibana Sales-API](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Tracing%20Sales-API.png)
-
-Podemos ver vários logs de entrada e saída, contendo o JSON de entrada e saída. Também podemos visualizar que foi feita uma chamada ao microsserviço de Product-API via HTTP REST, e também uma comunicação via mensagem do Rabbit, e conseguimos visualizar esses logs sendo recebidos lá na aplicação de Product-API:
-
-![Kibana Product-API](https://github.com/vhnegrisoli/curso-udemy-comunicacao-microsservicos/blob/master/Conte%C3%BAdos/Tracing%20Product-API.png)
-
-Com isso, conseguimos rastrear todos os dados de entrada e saída dos endpoints, o ID da transação que circula entre eles via chamada REST e via mensageria, facilitando no acompanhamento de logs de uma requisição específica e, principalmente, no processo de troubleshooting.
+![Endpoints](Conte%C3%BAdos/Collection.png)
 
 ## Comandos Docker
 
