@@ -6,7 +6,7 @@
 
 # Auth-API
 
-## Base URL: http://localhost:8080 ou https://microsservicos-auth-api.herokuapp.com
+## Base URL: http://localhost:8080
 
 ### **GET** - **/api/initial-data** - Cria dados iniciais da aplicação (não necessita headers transactionid e Authorization)
 
@@ -77,7 +77,7 @@ Caso envie um **token inválido**, a resposta será:
 
 # Product-API
 
-## Base URL: http://localhost:8081 ou https://microsservicos-product-api.herokuapp.com
+## Base URL: http://localhost:8081
 
 ---
 
@@ -626,7 +626,7 @@ Resposta (parâmetro description = book):
 
 # Sales-API
 
-## Base URL: http://localhost:8082 ou https://microsservicos-sales-api.herokuapp.com
+## Base URL: http://localhost:8082
 
 ### **GET** - **/api/initial-data** - Cria dados iniciais da aplicação (não necessita headers transactionid e Authorization)
 
