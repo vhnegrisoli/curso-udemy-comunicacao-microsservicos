@@ -240,6 +240,7 @@ public class ProductService {
                 objectMapper.writeValueAsString(response), transactionid, serviceid);
             return response;
         } catch (Exception ex) {
+            log.error("Error trying to call Sales-API: {}", ex.getMessage());
             throw new ValidationException("The sales could not be found.");
         }
     }
