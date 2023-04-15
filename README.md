@@ -2,6 +2,8 @@
 
 Repositório contendo o projeto desenvolvido do curso Comunicação entre Microsserviços, ministrado por mim para a plataforma Udemy.
 
+Para acessar o curso na plataforma, basta acessar esta URL: https://www.udemy.com/course/comunicacao-entre-microsservicos/
+
 ## Tecnologias
 
 * **Java 11**
