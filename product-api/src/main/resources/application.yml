@@ -27,7 +27,7 @@ spring:
     show_sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
   rabbitmq:
     host: ${RABBIT_MQ_HOST:localhost}
